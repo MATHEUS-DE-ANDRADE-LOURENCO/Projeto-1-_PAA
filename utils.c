@@ -22,3 +22,21 @@ void prepararTabuleiro(char tab[TAM][TAM], FILE *arq) {
         fgets(tab[i], 20, arq);
     }
 }
+
+int daPraMexer(char m[TAM][TAM], int x1, int y1, int x2, int y2) {
+
+    // Indica se o movimento sairá da matriz
+        // Se x2 ou y2 exceder o tamanho da matriz (8)
+        if(x2 > TAM -1 || y2 > TAM-1 || x2 < 0 || y2  < 0) {
+            return 0;
+        }
+
+    // Indica se o movimento é válido
+        // Se m[x1][y1] não é peça, e m[x2][y2] não é espaço vazio
+
+    // Declarar média entre x1 x2 e y1 y2
+        // Se m[medX][medY] não for peça
+
+    return 1;
+
+}

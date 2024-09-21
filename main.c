@@ -6,7 +6,7 @@
 int main() {
     int opc = 0; // Inicialize a variável opc
     char nomeArq[100]; // Defina um tamanho fixo para o nome do arquivo
-    char tab[TAM][TAM];
+    char tab[TAMX][TAMY];
 
     while(opc != 3) {
         menu();
@@ -17,7 +17,7 @@ int main() {
         switch(opc) {
             case 1:
                 printf("\nInforme o nome do arquivo: ");
-                scanf("%s", nomeArq); // Armazenar o nome no array
+                scanf("%s", nomeArq);
 
                 FILE *arq = fopen(nomeArq, "r");
 
@@ -32,6 +32,7 @@ int main() {
                 break;
 
             case 2:
+                imprimirMariz(tab);
                 break;
             
             case 3:
