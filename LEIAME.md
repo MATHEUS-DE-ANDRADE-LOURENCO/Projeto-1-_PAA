@@ -3,7 +3,7 @@
 
 **Grupo:**
 
-Felipe Ujvari Gasparino de Sousa -
-Gustavo Nascimento Siqueira - 
-Matheus de Andrade Lourenço - 10419691
+*Felipe Ujvari Gasparino de Sousa - 10418415*
+*Gustavo Nascimento Siqueira - 10419057*
+*Matheus de Andrade Lourenço - 10419691*
 
