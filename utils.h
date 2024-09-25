@@ -8,5 +8,7 @@ void imprimirMatriz(const char tab[TAM][TAM]);
 
 int prepararTabuleiro(char tab[TAM][TAM], FILE *arq);
 
-int daPraMexer(const char m[TAM][TAM], int x1, int y1, int x2, int y2);
+int daPraMexer(char m[TAM][TAM], int x1, int y1, int x2, int y2);
+
+int deuErrado(int m[TAM][TAM]);
 
