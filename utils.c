@@ -8,7 +8,7 @@ void menu() {
     printf("\n==================");
 }
 
-void imprimirMariz(char tab[TAM][TAM]) {
+void imprimirMatriz(char tab[TAM][TAM]) {
     for(int i = 0; i < TAM; i++) {
         printf("\n");
         for(int j = 0; j < TAM; j++) {
