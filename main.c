@@ -32,7 +32,7 @@ int main() {
                 break;
 
             case 2:
-                imprimirMariz(tab);
+                imprimirMatriz(tab);
                 break;
             
             case 3:
