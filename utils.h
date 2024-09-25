@@ -4,6 +4,6 @@
 
 void menu();
 
-void imprimirMariz(char tab[TAM][TAM]);
+void imprimirMatriz(char tab[TAM][TAM]);
 
 void prepararTabuleiro(char tab[TAM][TAM], FILE *arq);
