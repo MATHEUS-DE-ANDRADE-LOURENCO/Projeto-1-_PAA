@@ -12,7 +12,7 @@ void imprimirMatriz(char tab[TAM][TAM]) {
     for(int i = 0; i < TAM; i++) {
         printf("\n");
         for(int j = 0; j < TAM; j++) {
-            printf("%c", tab[i][j]);
+            printf("\t%c", tab[i][j]);
         }
     }
 }
