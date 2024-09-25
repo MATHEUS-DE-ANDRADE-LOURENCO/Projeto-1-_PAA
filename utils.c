@@ -33,10 +33,25 @@ int daPraMexer(char m[TAM][TAM], int x1, int y1, int x2, int y2) {
 
     // Indica se o movimento é válido
         // Se m[x1][y1] não é peça, e m[x2][y2] não é espaço vazio
-
-    // Declarar média entre x1 x2 e y1 y2
+        if (m[x1][y1] != 'o' || m[x2][y2]!= ' ') {
+            return 0;
+        }
+        // Declarar média entre x1 x2 e y1 y2
+        int medX = (x1 + x2 / 2);
+        int medY = (y1 + y2 / 2);
         // Se m[medX][medY] não for peça
+
+        if (m[x1][y1] != 'o'){
+            return 0;
+        }
+
+        
+        if (m[x1][y1] != '#'){
+            return 0;
+        }
 
     return 1;
 
 }
+
+
