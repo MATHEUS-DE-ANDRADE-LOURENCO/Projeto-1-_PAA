@@ -1,11 +1,18 @@
 # include "utils.h"
 
 void menu() {
-    printf("\n\n=====RESTA UM=====");
-    printf("\n1. Carregar tabuleiro");
-    printf("\n2. Resolver");
-    printf("\n3. Encerrar");
-    printf("\n==================");
+    printf("\n\n");
+    printf("╔══════════════════════════════╗\n");
+    printf("║         ♜ RESTA UM ♜         ║\n");
+    printf("╠══════════════════════════════╣\n");
+    printf("║                              ║\n");
+    printf("║   1. ▶ Carregar tabuleiro    ║\n");
+    printf("║                              ║\n");
+    printf("║   2. ▶ Resolver              ║\n");
+    printf("║                              ║\n");
+    printf("║   3. ▶ Encerrar              ║\n");
+    printf("║                              ║\n");
+    printf("╚══════════════════════════════╝\n");
 }
 
 void imprimirMatriz(char tab[TAM][TAM]) {
