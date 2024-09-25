@@ -61,4 +61,26 @@ int daPraMexer(char m[TAM][TAM], int x1, int y1, int x2, int y2) {
 
 }
 
+int deuErrado(int m[TAM][TAM]) {
+	int v[2] = {2, -2};
+	
+	for(int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			// Da pra mexer a peça pra esquerda?
+			if(daPraMexer(m, i, j, i + 2, j)) return 0;
+			
+			// Da pra mexer a peça pra direita?
+			if(daPraMexer(m, i, j, i - 2, j)) return 0;
+			
+			// Da pra mexer a peça pra cima?
+			if(daPraMexer(m, i, j, i, j + 2)) return 0;
+			
+			// Da pra mexer a peça pra baixo?
+			if(daPraMexer(m, i, j, i, j - 2)) return 0;
+		}
+	}
+	
+	return 1;
+}
+
 
