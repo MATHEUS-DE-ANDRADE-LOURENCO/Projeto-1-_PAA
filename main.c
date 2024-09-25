@@ -1,18 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <limits.h>
 #include "utils.h"
 
 #define MAX_FILENAME 256
-#define TAM 9
 
-static void limpar_buffer() {
+static void limpar_buffer(void) {
     int c;
     while ((c = getchar()) != '\n' && c != EOF);
 }
 
-static int ler_opcao() {
+static int ler_opcao(void) {
     int opcao;
     char input[16];
     
@@ -38,7 +36,7 @@ static FILE* abrir_arquivo(const char* nome_arquivo) {
 int main(void) {
     int opcao = 0;
     char nome_arquivo[MAX_FILENAME];
-    char tabuleiro[TAM][TAM];  // Usar TAM aqui
+    char tabuleiro[TAM][TAM];
     FILE* arquivo = NULL;
 
     while (opcao != 3) {
