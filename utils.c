@@ -37,8 +37,8 @@ int daPraMexer(char m[TAM][TAM], int x1, int y1, int x2, int y2) {
             return 0;
         }
         // Declarar média entre x1 x2 e y1 y2
-        int medX = (x1 + x2 / 2);
-        int medY = (y1 + y2 / 2);
+        int medX = (x1 + x2) / 2;
+        int medY = (y1 + y2) / 2;
         // Se m[medX][medY] não for peça
 
         if (m[x1][y1] != 'o'){
