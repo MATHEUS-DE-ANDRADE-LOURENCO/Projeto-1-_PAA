@@ -66,7 +66,9 @@ int main(void) {
                 break;
 
             case 2:
+
                 imprimirMatriz(tabuleiro);
+                restaUm(tabuleiro, 0, 32);
                 break;
             
             case 3:

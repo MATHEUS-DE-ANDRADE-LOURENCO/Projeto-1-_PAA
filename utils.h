@@ -8,7 +8,12 @@ void imprimirMatriz(const char tab[TAM][TAM]);
 
 int prepararTabuleiro(char tab[TAM][TAM], FILE *arq);
 
-int daPraMexer(char m[TAM][TAM], int x1, int y1, int x2, int y2);
+int daPraMexer(const char m[TAM][TAM], int x1, int y1, int x2, int y2);
 
-int deuErrado(int m[TAM][TAM]);
+void mexer(char m[TAM][TAM], int x1, int y1, int x2, int y2);
 
+void desfazerMovimento(char m[TAM][TAM], int x1, int y1, int x2, int y2);
+
+int deuCerto(char m[TAM][TAM], int cont_jogadas, int cont_pecas);
+
+int restaUm(char m[TAM][TAM], int cont_jogadas, int cont_pecas);
