@@ -142,13 +142,13 @@ int restaUm(char m[TAM][TAM], int cont_jogadas, int cont_pecas, char jogadas[MAX
                         else desfazerMovimento(m, i, j, i - 2, j);
                     }
                     
-                // Cima
+                // Baixo
                     if(daPraMexer(m, i, j, i, j + 2)) {
                         mexer(m, i, j, i, j + 2, jogadas, cont_jogadas);
                         if(restaUm(m, cont_jogadas + 1, cont_pecas - 1, jogadas)) return 1;
                         else desfazerMovimento(m, i, j, i, j + 2);
                     }
-                // Baixo
+                // Cima
                     if(daPraMexer(m, i, j, i, j - 2)) {
                         mexer(m, i, j, i, j - 2, jogadas, cont_jogadas);
                         if (restaUm(m, cont_jogadas + 1, cont_pecas - 1, jogadas)) return 1;
