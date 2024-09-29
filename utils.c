@@ -5,6 +5,7 @@
 
 #define MAX_LINE_LENGTH 20
 
+
 void menu(void) {
     static const char *menu_text[] = {
         "\n\n",
@@ -30,7 +31,7 @@ void imprimirMatriz(const char tab[TAM][TAM]) {
     for (int i = 0; i < TAM; i++) {
         putchar('\n');
         for (int j = 0; j < TAM; j++) {
-            printf("%c", tab[i][j]);
+            printf("%c ", tab[i][j]);
         }
     }
     putchar('\n');
@@ -90,13 +91,20 @@ int daPraMexer(const char m[TAM][TAM], int x1, int y1, int x2, int y2) {
     
 }
 
-void mexer(char m[TAM][TAM], int x1, int y1, int x2, int y2) {
+void mexer(char m[TAM][TAM], int x1, int y1, int x2, int y2, char jogadas[MAX_JOGADAS][TAM][TAM], int cont_jogadas) {
     int mediaX = (x1 + x2)/2;
     int mediaY = (y1 + y2)/2;
     
     m[x1][y1] = ' ';
     m[mediaX][mediaY] = ' ';
     m[x2][y2] = 'o';
+
+    // Armazenar a jogada atual no histórico de jogadas
+    for (int i = 0; i < TAM; i++) {
+        for (int j = 0; j < TAM; j++) {
+            jogadas[cont_jogadas][i][j] = m[i][j];
+        }
+    }
 }
 
 void desfazerMovimento(char m[TAM][TAM], int x1, int y1, int x2, int y2) {
@@ -108,15 +116,13 @@ void desfazerMovimento(char m[TAM][TAM], int x1, int y1, int x2, int y2) {
     m[x2][y2] = ' ';
 }
 
-
-
 int deuCerto(char m[TAM][TAM], int cont_jogadas, int cont_pecas) {
     return cont_pecas == 1 && cont_jogadas == 31 && m[4][4] == 'o';    
 }
 
-int restaUm(char m[TAM][TAM], int cont_jogadas, int cont_pecas) {
+int restaUm(char m[TAM][TAM], int cont_jogadas, int cont_pecas, char jogadas[MAX_JOGADAS][TAM][TAM]) {
     if (deuCerto(m, cont_jogadas, cont_pecas)) {
-        imprimirMatriz(m);
+        mostrarJogadas(jogadas, cont_jogadas);  // Mostra todas as jogadas
         return 1;
     } else {
         for(int i = 0; i < TAM; i++) {
@@ -124,28 +130,28 @@ int restaUm(char m[TAM][TAM], int cont_jogadas, int cont_pecas) {
                 if(m[i][j] == 'o') {
                 // Direita
                     if(daPraMexer(m, i, j, i + 2, j)) {
-                        mexer(m, i, j, i + 2, j);
-                        if(restaUm(m, cont_jogadas + 1, cont_pecas - 1)) return 1;
+                        mexer(m, i, j, i + 2, j, jogadas, cont_jogadas);
+                        if(restaUm(m, cont_jogadas + 1, cont_pecas - 1, jogadas)) return 1;
                         else desfazerMovimento(m, i, j, i + 2, j);
                     }
                     
                 // Esquerda
                     if(daPraMexer(m, i, j, i - 2, j)) {
-                        mexer(m, i, j, i - 2, j);
-                        if(restaUm(m, cont_jogadas + 1, cont_pecas - 1)) return 1;
+                        mexer(m, i, j, i - 2, j, jogadas, cont_jogadas);
+                        if(restaUm(m, cont_jogadas + 1, cont_pecas - 1, jogadas)) return 1;
                         else desfazerMovimento(m, i, j, i - 2, j);
                     }
                     
                 // Cima
                     if(daPraMexer(m, i, j, i, j + 2)) {
-                        mexer(m, i, j, i, j + 2);
-                        if(restaUm(m, cont_jogadas + 1, cont_pecas - 1)) return 1;
+                        mexer(m, i, j, i, j + 2, jogadas, cont_jogadas);
+                        if(restaUm(m, cont_jogadas + 1, cont_pecas - 1, jogadas)) return 1;
                         else desfazerMovimento(m, i, j, i, j + 2);
                     }
                 // Baixo
                     if(daPraMexer(m, i, j, i, j - 2)) {
-                        mexer(m, i, j, i, j - 2);
-                        if (restaUm(m, cont_jogadas + 1, cont_pecas - 1)) return 1;
+                        mexer(m, i, j, i, j - 2, jogadas, cont_jogadas);
+                        if (restaUm(m, cont_jogadas + 1, cont_pecas - 1, jogadas)) return 1;
                         else desfazerMovimento(m, i, j, i, j-2);
                     }
                 }
@@ -154,4 +160,12 @@ int restaUm(char m[TAM][TAM], int cont_jogadas, int cont_pecas) {
     }
     
     return 0;
+}
+
+void mostrarJogadas(char jogadas[MAX_JOGADAS][TAM][TAM], int cont_jogadas) {
+    printf("Mostrando todas as jogadas realizadas:\n");
+    for (int i = 0; i <= cont_jogadas; i++) {
+        printf("\nJogada %d:\n", i + 1);
+        imprimirMatriz(jogadas[i]);
+    }
 }

@@ -3,8 +3,6 @@
 #include <string.h>
 #include "utils.h"
 
-#define MAX_FILENAME 256
-
 static void limpar_buffer(void) {
     int c;
     while ((c = getchar()) != '\n' && c != EOF);
@@ -37,6 +35,7 @@ int main(void) {
     int opcao = 0;
     char nome_arquivo[MAX_FILENAME];
     char tabuleiro[TAM][TAM];
+    char jogadas[MAX_JOGADAS][TAM][TAM];
     FILE* arquivo = NULL;
 
     while (opcao != 3) {
@@ -66,9 +65,10 @@ int main(void) {
                 break;
 
             case 2:
-
+                printf("Tabuleiro inicial:\n");
                 imprimirMatriz(tabuleiro);
-                restaUm(tabuleiro, 0, 32);
+                printf("\n");
+                restaUm(tabuleiro, 0, 32, jogadas);
                 break;
             
             case 3:
